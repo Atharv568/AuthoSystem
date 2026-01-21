@@ -1,18 +1,16 @@
 import java.sql.*;
-public class DBconnection{
-    private static final String url ="";
-    private static final String username="";
-    private static final String password="";
+import DB.DBconnection;
+import java.sql.Connection;
 
-} public static void main(String args[]){
-    try{
-        Class.forName("com.mysql.cj.jdbc.Driver");
-    }catch(ClassNotFoundException e){
-        System.out.println(e.getMessage());
-    }
-    try{
-        Connection connection= DriverManager.getConnection(url, username, password);
-    }catch (SQLException e){
-        System.out.print(e.getMessage());
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Connection connection = DBconnection.getConnection();
+            System.out.println("Database connected successfully!");
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }
+
