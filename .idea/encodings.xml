@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/DB/DBconnection.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/dao/UserDAO.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/model/User.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/util/PasswordUtil.java" charset="UTF-8" />
   </component>
