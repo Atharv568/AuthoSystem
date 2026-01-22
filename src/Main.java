@@ -1,28 +1,34 @@
-//import java.sql.*;
-//import DB.DBconnection;
-//import java.sql.Connection;
-//
-//public class Main {
-//    public static void main(String[] args) {
-//        try {
-//            Connection connection = DBconnection.getConnection();
-//            System.out.println("Database connected successfully!");
-//            connection.close();
-//        } catch (Exception e) {
-//            System.out.println("Error: " + e.getMessage());
-//        }
-//    }
-//}
-import util.PasswordUtil;
+import service.AuthService;
+
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        String password = "admin123";
-        String hashed = PasswordUtil.hashPassword(password);
+        Scanner sc = new Scanner(System.in);
+        AuthService authService = new AuthService();
 
-        System.out.println("Original: " + password);
-        System.out.println("Hashed  : " + hashed);
+        System.out.println("=== User Registration ===");
+
+        System.out.print("Enter name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter email: ");
+        String email = sc.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = sc.nextLine();
+
+        boolean success = authService.register(name, email, password);
+
+        if (success) {
+            System.out.println("User registered successfully!");
+        } else {
+            System.out.println("Registration failed!");
+        }
+
+        sc.close();
     }
 }
 
